@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="https://www.ros.org/wiki/xacro" name="camera">
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.05 0.05 0.2"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.05 0.05 0.2"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0.0"  ixz="0.0"
+                                iyy="1" iyz="0.0" 
+                                           izz="1" />
+        </inertial>
+    </link>
+    <link name="arm_link_1">
+        <visual>
+            <geometry>
+                <box size="0.05 0.05 0.2"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0 1 1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.05 0.05 0.2"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0.0"  ixz="0.0"
+                                iyy="1" iyz="0.0" 
+                                           izz="1" />
+        </inertial>  
+    </link>
+
+    <link name="arm_link_2">
+        <visual>
+            <geometry>
+                <box size="0.05 0.05 0.2"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0 1 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.05 0.05 0.2"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0.0"  ixz="0.0"
+                                iyy="1" iyz="0.0" 
+                                           izz="1" />
+        </inertial>        
+    </link>
+    <link name="arm_link_3">
+        <visual>
+            <geometry>
+                <box size="0.05 0.05 0.2"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="1 1 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.05 0.05 0.2"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0.0"  ixz="0.0"
+                                iyy="1" iyz="0.0" 
+                                           izz="1" />
+        </inertial>        
+    </link> 
+    <link name="arm_link_4">
+        <visual>
+            <geometry>
+                <box size="0.05 0.05 0.2"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="1 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.05 0.05 0.2"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="1" ixy="0.0"  ixz="0.0"
+                                iyy="1" iyz="0.0" 
+                                           izz="1" />
+        </inertial>        
+    </link> 
+    <joint name="arm_joint_1" type="revolute">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="arm_link_1"/>
+        <limit effort="10" velocity="10" lower="-1.57" upper="1.57"/>
+    </joint>
+    <joint name="arm_joint_2" type="revolute">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="arm_link_1"/>
+        <child link="arm_link_2"/>
+        <limit effort="10" velocity="10" lower="-1.57" upper="1.57"/>
+    </joint>  
+    <joint name="arm_joint_3" type="revolute">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="arm_link_2"/>
+        <child link="arm_link_3"/>
+        <limit effort="10" velocity="10" lower="-1.57" upper="1.57"/>
+    </joint>  
+    <joint name="arm_joint_4" type="revolute">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="arm_link_3"/>
+        <child link="arm_link_4"/>
+        <limit effort="10" velocity="10" lower="-1.57" upper="1.57"/>
+    </joint>              
+</robot>

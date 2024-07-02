@@ -1,0 +1,14 @@
+dh_arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - arm_joint_1
+    - arm_joint_2
+    - arm_joint_3
+    - arm_joint_4
+  
+  constraints:
+    goal_time: 0.5
+    stopped_velocity_tolerance: 0.2
+  stop_trajectory_duration: 0
+  state_publish_rate: 20
+  action_monitor_rate: 10
